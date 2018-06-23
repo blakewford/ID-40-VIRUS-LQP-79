@@ -9,6 +9,7 @@
 using namespace std::chrono;
 
 #include "VLQP_AB.ino"
+#include "size.h"
 
 bool gKeepGoing = true;
 const int32_t SCALE = 8;
@@ -497,6 +498,10 @@ ArduboyTones::ArduboyTones(bool (*outEn)())
 SDL_AudioDeviceID gAudioDevice = ~0;
 SDL_AudioSpec gAudioSpec = {.freq=44100, .format=32784, .channels=2, .silence=0, .samples=4096, .padding=0, .size=0, .callback=nullptr, .userdata=nullptr};
 
+void Arduboy2Audio::begin()
+{
+}
+
 void ArduboyTones::tone(uint16_t freq, uint16_t dur)
 {
     if(system_clock::now() < gAudioSyncPoint) return; //busy
@@ -553,7 +558,14 @@ void Arduboy2Audio::saveOnOff()
 unsigned long int getImageSize(const uint8_t *bitmap)
 {
     unsigned long int size = 0;
+    size = virus::getImageSize(bitmap);
+
     return size;
+}
+
+void Sprites::drawOverwrite(int16_t x, int16_t y, const uint8_t *bitmap, uint8_t frame)
+{
+    assert(0);
 }
 
 void Sprites::drawSelfMasked(int16_t x, int16_t y, const uint8_t *bitmap, uint8_t frame)

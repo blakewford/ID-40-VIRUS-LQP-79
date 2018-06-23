@@ -199,7 +199,11 @@ const FunctionPointer PROGMEM nextLevelFases[] =
 
 void stateGameNextLevel()
 {
+#ifdef __AVR__
   ((FunctionPointer) pgm_read_word (&nextLevelFases[gameOverAndStageFase]))();
+#else
+  ((FunctionPointer)(nextLevelFases[gameOverAndStageFase]))();
+#endif
   if (bonusVisible)
   {
     sprites.drawSelfMasked(32, 16, bonusPoints, 0);
@@ -247,7 +251,11 @@ const FunctionPointer PROGMEM gameOverFases[] =
 
 void stateGameOver()
 {
+#ifdef __AVR__
   ((FunctionPointer) pgm_read_word (&gameOverFases[gameOverAndStageFase]))();
+#else
+  ((FunctionPointer)(gameOverFases[gameOverAndStageFase]))();
+#endif
   if (gameType == STATE_GAME_MAYHEM)sprites.drawSelfMasked(41, 3, textMayhem, 0);
   else sprites.drawSelfMasked(43, 3, textNormal, 0);
   sprites.drawSelfMasked(11, 15, gameOver, 0);
@@ -257,7 +265,11 @@ void stateGameOver()
 
 void stateGameEnd()
 {
+#ifdef __AVR__
   ((FunctionPointer) pgm_read_word (&gameOverFases[gameOverAndStageFase]))();
+#else
+  ((FunctionPointer)(gameOverFases[gameOverAndStageFase]))();
+#endif
   sprites.drawSelfMasked(22, 8, youWon, 0);
   drawNumbers(36, 32, FONT_BIG, DATA_SCORE);
   if (pressKeyVisible) sprites.drawSelfMasked(37, 56, pressKey, 0);
