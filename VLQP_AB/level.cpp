@@ -1,4 +1,5 @@
 #include "level.h"
+#include <stdio.h>
 
 // method implementations ///////////////////////////////////////////////////
 
@@ -61,17 +62,19 @@ void drawNumbers(byte NumbersX, byte NumbersY, byte fontType, int timerOrScoreOr
   switch (timerOrScoreOrLevel)
   {
     case DATA_TIMER:
-      itoa(exitDoor.counter, buf, 10);
+//      itoa(exitDoor.counter, buf, 10);
+      sprintf(buf, "%d", exitDoor.counter);
       charLen = strlen(buf);
       pad = 3 - charLen;
       break;
     case DATA_SCORE:
-      ltoa(scorePlayer, buf, 10);
+      ltoa_compat(scorePlayer, buf, 10);
       charLen = strlen(buf);
       pad = 6 - charLen;
       break;
     case DATA_LEVEL:
-      itoa(displayLevel, buf, 10);
+//      itoa(displayLevel, buf, 10);
+      sprintf(buf, "%d", displayLevel);
       charLen = strlen(buf);
       pad = 3 - charLen;
       break;
