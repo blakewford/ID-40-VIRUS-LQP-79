@@ -277,8 +277,8 @@ void stateGameEnd()
 
 void stateGamePause()
 {
-  sprites.drawSelfMasked(30, 0, virus::titleScreen02, 0);
-  sprites.drawSelfMasked(92, 0, virus::titleScreen03, 0);
+  sprites.drawSelfMasked(30, 0, virus::getBitmap(virus::TITLESCREEN02_IMAGE), 0);
+  sprites.drawSelfMasked(92, 0, virus::getBitmap(virus::TITLESCREEN03_IMAGE), 0);
   sprites.drawSelfMasked(37, 40, virus::pause, 0);
   if (arduboy.justPressed(A_BUTTON | B_BUTTON))
   {

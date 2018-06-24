@@ -16,8 +16,8 @@ void drawTitleScreen()
 
 void drawBadge()
 {
-  sprites.drawSelfMasked(30, 0, virus::titleScreen02, 0);
-  sprites.drawSelfMasked(92, 0, virus::titleScreen03, 0);
+  sprites.drawSelfMasked(30, 0, virus::getBitmap(virus::TITLESCREEN02_IMAGE), 0);
+  sprites.drawSelfMasked(92, 0, virus::getBitmap(virus::TITLESCREEN03_IMAGE), 0);
 }
 
 void setSlidersToZero()
@@ -90,7 +90,7 @@ void stateMenuMain()
 
 void stateMenuHelp()
 {
-  for (byte i = 0; i < 2; i++) sprites.drawSelfMasked(32, 32 * i, virus::qrcode, i);
+  for (byte i = 0; i < 2; i++) sprites.drawSelfMasked(32, 32 * i, virus::getBitmap(virus::QRCODE_IMAGE), i);
   if (arduboy.justPressed(A_BUTTON | B_BUTTON)) gameState = STATE_MENU_MAIN;
 }
 
@@ -100,16 +100,16 @@ void stateMenuPlay()
   drawTitleScreen();
   for (byte i = 0; i < 3; i++)
   {
-    sprites.drawOverwrite(127 - slideCounter + (8 * i) , 25, virus::smallMask, 0);
+    sprites.drawOverwrite(127 - slideCounter + (8 * i) , 25, virus::getBitmap(virus::SMALLMASK_IMAGE), 0);
   }
-  if (menuSelection == 2) sprites.drawOverwrite(98 , 25, virus::smallMask, 0);
+  if (menuSelection == 2) sprites.drawOverwrite(98 , 25, virus::getBitmap(virus::SMALLMASK_IMAGE), 0);
   for (byte i = 0; i < 3; i++)
   {
     if (((2 + i) - menuSelection) != 0)
     {
-      sprites.drawSelfMasked(128 - slideCounter, 25 + (9 * i), virus::menuText, i + 7);
+      sprites.drawSelfMasked(128 - slideCounter, 25 + (9 * i), virus::getBitmap(virus::MENUTEXT_IMAGE), i + 7);
     }
-    if (((2 + i) - menuSelection) == 0) sprites.drawSelfMasked(128 - slideCounter - globalCounter, 25 + (9 * i), virus::menuText, i + 7);
+    if (((2 + i) - menuSelection) == 0) sprites.drawSelfMasked(128 - slideCounter - globalCounter, 25 + (9 * i), virus::getBitmap(virus::MENUTEXT_IMAGE), i + 7);
   }
   if (arduboy.justPressed(DOWN_BUTTON) && (menuSelection < 4))
   {
@@ -153,7 +153,7 @@ void stateMenuSoundfx()
   drawTitleScreen();
   for (byte i = 0; i < 3; i++)
   {
-    sprites.drawOverwrite(127 - slideCounter + (8 * i) , 25, virus::smallMask, 0);
+    sprites.drawOverwrite(127 - slideCounter + (8 * i) , 25, virus::getBitmap(virus::SMALLMASK_IMAGE), 0);
   }
 
   if (arduboy.justPressed(DOWN_BUTTON))
@@ -173,16 +173,16 @@ void stateMenuSoundfx()
     gameState = STATE_MENU_MAIN;
   }
 
-  sprites.drawSelfMasked(128 - slideCounter, 25 , virus::menuText, 4);
+  sprites.drawSelfMasked(128 - slideCounter, 25 , virus::getBitmap(virus::MENUTEXT_IMAGE), 4);
   if (arduboy.audio.enabled())
   {
-    sprites.drawSelfMasked(128 - slideCounter, 34, virus::menuText, 5);
-    sprites.drawSelfMasked(128 - slideCounter - globalCounter, 43, virus::menuText, 6);
+    sprites.drawSelfMasked(128 - slideCounter, 34, virus::getBitmap(virus::MENUTEXT_IMAGE), 5);
+    sprites.drawSelfMasked(128 - slideCounter - globalCounter, 43, virus::getBitmap(virus::MENUTEXT_IMAGE), 6);
   }
   else
   {
-    sprites.drawSelfMasked(128 - slideCounter, 43, virus::menuText, 6);
-    sprites.drawSelfMasked(128 - slideCounter - globalCounter, 34, virus::menuText, 5);
+    sprites.drawSelfMasked(128 - slideCounter, 43, virus::getBitmap(virus::MENUTEXT_IMAGE), 6);
+    sprites.drawSelfMasked(128 - slideCounter - globalCounter, 34, virus::getBitmap(virus::MENUTEXT_IMAGE), 5);
   }
   makeItSlide();
 }

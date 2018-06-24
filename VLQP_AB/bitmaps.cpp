@@ -8,17 +8,54 @@ namespace virus
         switch(image)
         {
             case T_ARG_IMAGE:
-                return T_arg;
+                return internal::T_arg;
             case TITLESCREEN00_IMAGE:
-                return titleScreen00;
+                return internal::titleScreen00;
             case TITLESCREEN01_IMAGE:
-                return titleScreen01;
+                return internal::titleScreen01;
             case TITLESCREEN02_IMAGE:
-                return titleScreen02;
+                return internal::titleScreen02;
+            case TITLESCREEN03_IMAGE:
+                return internal::titleScreen03;
             case MENUTEXT_IMAGE:
-                return menuText;
+                return internal::menuText;
             case SMALLMASK_IMAGE:
-                return smallMask;
+                return internal::smallMask;
+            case QRCODE_IMAGE:
+                return internal::qrcode;
+/*
+madeBy00
+madeBy01
+madeBy02
+playerAmy
+playerAmyMask
+enemyZombie
+enemyZombieMask
+zombieTwo
+zombieTwoMask
+survivor
+survivorMask
+numbersTiny
+numbersSmall_plus_mask
+numbersBig
+HUD_plus_mask
+coolDownLine_plus_mask
+help_plus_mask
+gameOver
+textMayhem
+textNormal
+nextLevel
+bonusPoints
+pressKey
+pause
+collectables_plus_mask
+dotMask
+exitOpen
+exitOpenMask
+exitClosed
+exitClosedMask
+youWon
+*/
         }
 
         return nullptr;
@@ -28,37 +65,74 @@ namespace virus
     {
         unsigned long int size = 0;
 
-        if(bitmap == T_arg)
+        if(bitmap == internal::T_arg)
         {
-            size = sizeof(T_arg);
+            size = sizeof(internal::T_arg);
         }
-        else if(bitmap == titleScreen00)
+        else if(bitmap == internal::titleScreen00)
         {
-            size = sizeof(titleScreen00);
+            size = sizeof(internal::titleScreen00);
         }
-        else if(bitmap == titleScreen01)
+        else if(bitmap == internal::titleScreen01)
         {
-            size = sizeof(titleScreen01);
+            size = sizeof(internal::titleScreen01);
         }
-        else if(bitmap == titleScreen02)
+        else if(bitmap == internal::titleScreen02)
         {
-            size = sizeof(titleScreen02);
+            size = sizeof(internal::titleScreen02);
         }
-        else if(bitmap == qrcode)
+        else if(bitmap == internal::titleScreen03)
         {
-            size = sizeof(qrcode);
+            size = sizeof(internal::titleScreen03);
         }
-        else if(bitmap == menuText)
+        else if(bitmap == internal::menuText)
         {
-            size = sizeof(menuText);
+            size = sizeof(internal::menuText);
         }
+        else if(bitmap == internal::smallMask)
+        {
+            size = sizeof(internal::smallMask);
+        }
+        else if(bitmap == internal::qrcode)
+        {
+            size = sizeof(internal::qrcode);
+        }
+/*
+madeBy00
+madeBy01
+madeBy02
+playerAmy
+playerAmyMask
+enemyZombie
+enemyZombieMask
+zombieTwo
+zombieTwoMask
+survivor
+survivorMask
+numbersTiny
+numbersSmall_plus_mask
+numbersBig
+HUD_plus_mask
+coolDownLine_plus_mask
+help_plus_mask
+gameOver
+textMayhem
+textNormal
+nextLevel
+bonusPoints
+pressKey
+pause
+collectables_plus_mask
+dotMask
+exitOpen
+exitOpenMask
+exitClosed
+exitClosedMask
+youWon
+*/
         else if(bitmap == numbersBig)
         {
             size = sizeof(numbersBig);
-        }
-        else if(bitmap == smallMask)
-        {
-            size = sizeof(smallMask);
         }
         else
         {
