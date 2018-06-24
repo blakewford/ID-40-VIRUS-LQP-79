@@ -206,18 +206,18 @@ void stateGameNextLevel()
 #endif
   if (bonusVisible)
   {
-    sprites.drawSelfMasked(32, 16, virus::bonusPoints, 0);
+    sprites.drawSelfMasked(32, 16, virus::getBitmap(virus::BONUSPOINTS_IMAGE), 0);
     drawNumbers(78, 16, FONT_SMALL, DATA_TIMER);
     drawNumbers(36, 36, FONT_BIG, DATA_SCORE);
   }
   if (nextLevelVisible)
   {
-    sprites.drawSelfMasked(leftX, 24, virus::nextLevel, 0);
+    sprites.drawSelfMasked(leftX, 24, virus::getBitmap(virus::NEXTLEVEL_IMAGE), 0);
     if (pressKeyVisible)
     {
-      if (gameType == STATE_GAME_MAYHEM)sprites.drawSelfMasked(41, 8, virus::textMayhem, 0);
-      else sprites.drawSelfMasked(43, 8, virus::textNormal, 0);
-      sprites.drawSelfMasked(37, 48, virus::pressKey, 0);
+      if (gameType == STATE_GAME_MAYHEM)sprites.drawSelfMasked(41, 8, virus::getBitmap(virus::TEXTMAYHEM_IMAGE), 0);
+      else sprites.drawSelfMasked(43, 8, virus::getBitmap(virus::TEXTNORMAL_IMAGE), 0);
+      sprites.drawSelfMasked(37, 48, virus::getBitmap(virus::PRESSKEY_IMAGE), 0);
     }
     drawNumbers(rightX, 24, FONT_BIG, DATA_LEVEL);
   }
@@ -256,11 +256,11 @@ void stateGameOver()
 #else
   ((FunctionPointer)(gameOverFases[gameOverAndStageFase]))();
 #endif
-  if (gameType == STATE_GAME_MAYHEM)sprites.drawSelfMasked(41, 3, virus::textMayhem, 0);
-  else sprites.drawSelfMasked(43, 3, virus::textNormal, 0);
-  sprites.drawSelfMasked(11, 15, virus::gameOver, 0);
+  if (gameType == STATE_GAME_MAYHEM)sprites.drawSelfMasked(41, 3, virus::getBitmap(virus::TEXTMAYHEM_IMAGE), 0);
+  else sprites.drawSelfMasked(43, 3, virus::getBitmap(virus::TEXTNORMAL_IMAGE), 0);
+  sprites.drawSelfMasked(11, 15, virus::getBitmap(virus::GAMEOVER_IMAGE), 0);
   drawNumbers(35, 34, FONT_BIG, DATA_SCORE);
-  if (pressKeyVisible) sprites.drawSelfMasked(37, 53, virus::pressKey, 0);
+  if (pressKeyVisible) sprites.drawSelfMasked(37, 53, virus::getBitmap(virus::PRESSKEY_IMAGE), 0);
 }
 
 void stateGameEnd()
@@ -272,18 +272,18 @@ void stateGameEnd()
 #endif
   sprites.drawSelfMasked(22, 8, virus::youWon, 0);
   drawNumbers(36, 32, FONT_BIG, DATA_SCORE);
-  if (pressKeyVisible) sprites.drawSelfMasked(37, 56, virus::pressKey, 0);
+  if (pressKeyVisible) sprites.drawSelfMasked(37, 56, virus::getBitmap(virus::PRESSKEY_IMAGE), 0);
 }
 
 void stateGamePause()
 {
   sprites.drawSelfMasked(30, 0, virus::getBitmap(virus::TITLESCREEN02_IMAGE), 0);
   sprites.drawSelfMasked(92, 0, virus::getBitmap(virus::TITLESCREEN03_IMAGE), 0);
-  sprites.drawSelfMasked(37, 40, virus::pause, 0);
+  sprites.drawSelfMasked(37, 40, virus::getBitmap(virus::PAUSE_IMAGE), 0);
   if (arduboy.justPressed(A_BUTTON | B_BUTTON))
   {
     gameState = STATE_GAME_PLAYING;
-    sprites.drawSelfMasked(22, 32, virus::gameOver, 0);
+    sprites.drawSelfMasked(22, 32, virus::getBitmap(virus::GAMEOVER_IMAGE), 0);
   }
 }
 

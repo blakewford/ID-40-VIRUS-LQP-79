@@ -47,13 +47,22 @@ numbersBig
 HUD_plus_mask
 coolDownLine_plus_mask
 help_plus_mask
-gameOver
-textMayhem
-textNormal
-nextLevel
-bonusPoints
-pressKey
-pause
+*/
+            case GAMEOVER_IMAGE:
+                return internal::gameOver;
+            case TEXTMAYHEM_IMAGE:
+                return internal::textMayhem;
+            case TEXTNORMAL_IMAGE:
+                return internal::textNormal;
+            case NEXTLEVEL_IMAGE:
+                return internal::nextLevel;
+            case BONUSPOINTS_IMAGE:
+                return internal::bonusPoints;
+            case PRESSKEY_IMAGE:
+                return internal::pressKey;
+            case PAUSE_IMAGE:
+                return internal::pause;
+/*
 collectables_plus_mask
 dotMask
 exitOpen
@@ -130,13 +139,36 @@ numbersBig
 HUD_plus_mask
 coolDownLine_plus_mask
 help_plus_mask
-gameOver
-textMayhem
-textNormal
-nextLevel
-bonusPoints
-pressKey
-pause
+*/
+        else if(bitmap == internal::gameOver)
+        {
+            size = sizeof(internal::gameOver);
+        }
+        else if(bitmap == internal::textMayhem)
+        {
+            size = sizeof(internal::textMayhem);
+        }
+        else if(bitmap == internal::textNormal)
+        {
+            size = sizeof(internal::textNormal);
+        }
+        else if(bitmap == internal::nextLevel)
+        {
+            size = sizeof(internal::nextLevel);
+        }
+        else if(bitmap == internal::bonusPoints)
+        {
+            size = sizeof(internal::bonusPoints);
+        }
+        else if(bitmap == internal::pressKey)
+        {
+            size = sizeof(internal::pressKey);
+        }
+        else if(bitmap == internal::pause)
+        {
+            size = sizeof(internal::pause);
+        }
+/*
 collectables_plus_mask
 dotMask
 exitOpen
