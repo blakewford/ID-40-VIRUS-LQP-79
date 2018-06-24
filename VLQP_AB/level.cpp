@@ -87,13 +87,13 @@ void drawNumbers(byte NumbersX, byte NumbersY, byte fontType, int timerOrScoreOr
     switch (fontType)
     {
       case FONT_TINY:
-        sprites.drawSelfMasked(NumbersX + (4 * i), NumbersY, numbersTiny, 0);
+        sprites.drawSelfMasked(NumbersX + (4 * i), NumbersY, virus::numbersTiny, 0);
         break;
       case FONT_SMALL:
-        sprites.drawPlusMask(NumbersX + (7 * i), NumbersY, numbersSmall_plus_mask, 0);
+        sprites.drawPlusMask(NumbersX + (7 * i), NumbersY, virus::numbersSmall_plus_mask, 0);
         break;
       case FONT_BIG:
-        sprites.drawSelfMasked(NumbersX + (10 * i), NumbersY, numbersBig, 0);
+        sprites.drawSelfMasked(NumbersX + (10 * i), NumbersY, virus::numbersBig, 0);
         break;
     }
   }
@@ -118,13 +118,13 @@ void drawNumbers(byte NumbersX, byte NumbersY, byte fontType, int timerOrScoreOr
     switch (fontType)
     {
       case FONT_TINY:
-        sprites.drawSelfMasked(NumbersX + (pad * 4) + (4 * i), NumbersY, numbersTiny, digit);
+        sprites.drawSelfMasked(NumbersX + (pad * 4) + (4 * i), NumbersY, virus::numbersTiny, digit);
         break;
       case FONT_SMALL:
-        sprites.drawPlusMask(NumbersX + (pad * 7) + (7 * i), NumbersY, numbersSmall_plus_mask, digit);
+        sprites.drawPlusMask(NumbersX + (pad * 7) + (7 * i), NumbersY, virus::numbersSmall_plus_mask, digit);
         break;
       case FONT_BIG:
-        sprites.drawSelfMasked(NumbersX + (pad * 10) + (10 * i), NumbersY, numbersBig, digit);
+        sprites.drawSelfMasked(NumbersX + (pad * 10) + (10 * i), NumbersY, virus::numbersBig, digit);
         break;
     }
   }

@@ -124,7 +124,7 @@ void drawBullets()
     y = bull.y - mapPositionY;
     if ((x > 0) && (y > 0) && (x < WIDTH) && (y < HEIGHT))
     {
-      sprites.drawSelfMasked(x, y, dotMask, 0);
+      sprites.drawSelfMasked(x, y, virus::dotMask, 0);
     }
   }
 }

@@ -62,14 +62,14 @@ void drawDoor()
     {
       for (byte y = 0; y < 2; y++)
       {
-        sprites.drawErase(exitDoor.x - mapPositionX + (x * 8), exitDoor.y - mapPositionY + (y * 8), exitOpenMask, 0);
-        sprites.drawSelfMasked(exitDoor.x - mapPositionX + (x * 8), exitDoor.y - mapPositionY + (y * 8), exitOpen, exitDoor.frame + 4 * exitDoor.orientation);
+        sprites.drawErase(exitDoor.x - mapPositionX + (x * 8), exitDoor.y - mapPositionY + (y * 8), virus::exitOpenMask, 0);
+        sprites.drawSelfMasked(exitDoor.x - mapPositionX + (x * 8), exitDoor.y - mapPositionY + (y * 8), virus::exitOpen, exitDoor.frame + 4 * exitDoor.orientation);
       }
     }
   }
   else
   {
-    sprites.drawErase(exitDoor.x - mapPositionX, exitDoor.y - mapPositionY, exitClosedMask, 0);
-    sprites.drawSelfMasked(exitDoor.x - mapPositionX, exitDoor.y - mapPositionY, exitClosed, exitDoor.orientation);
+    sprites.drawErase(exitDoor.x - mapPositionX, exitDoor.y - mapPositionY, virus::exitClosedMask, 0);
+    sprites.drawSelfMasked(exitDoor.x - mapPositionX, exitDoor.y - mapPositionY, virus::exitClosed, exitDoor.orientation);
   }
 }
