@@ -418,29 +418,18 @@ bool Arduboy2Base::notPressed(uint8_t buttons)
 bool Arduboy2Base::justPressed(uint8_t button)
 {
     bool pressed = false;
-    switch(button)
-    {
-        case LEFT_BUTTON:
-            pressed = gCachedButtonState.leftButton;
-            break;
-        case RIGHT_BUTTON:
-            pressed = gCachedButtonState.rightButton;
-            break;
-        case UP_BUTTON:
-            pressed = gCachedButtonState.upButton;
-            break;
-        case DOWN_BUTTON:
-            pressed = gCachedButtonState.downButton;
-            break;
-        case A_BUTTON:
-            pressed = gCachedButtonState.buttonA;
-            break;
-        case B_BUTTON:
-            pressed = gCachedButtonState.buttonB;
-            break;
-        default:
-            break;
-    }
+
+    if(button & LEFT_BUTTON) pressed = gCachedButtonState.leftButton;
+    if(pressed) return true;
+    if(button & RIGHT_BUTTON) pressed = gCachedButtonState.rightButton;
+    if(pressed) return true;
+    if(button & UP_BUTTON) pressed = gCachedButtonState.upButton;
+    if(pressed) return true;
+    if(button & DOWN_BUTTON) pressed = gCachedButtonState.downButton;
+    if(pressed) return true;
+    if(button & A_BUTTON) pressed = gCachedButtonState.buttonA;
+    if(pressed) return true;
+    if(button & B_BUTTON) pressed = gCachedButtonState.buttonB;
 
     return pressed;
 }
