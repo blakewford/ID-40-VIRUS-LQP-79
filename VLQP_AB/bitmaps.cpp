@@ -23,6 +23,12 @@ namespace virus
                 return internal::smallMask;
             case QRCODE_IMAGE:
                 return internal::qrcode;
+            case MADEBY00_IMAGE:
+                return internal::madeBy00;
+            case MADEBY01_IMAGE:
+                return internal::madeBy01;
+            case MADEBY02_IMAGE:
+                return internal::madeBy02;
 /*
 madeBy00
 madeBy01
@@ -97,10 +103,19 @@ youWon
         {
             size = sizeof(internal::qrcode);
         }
+        else if(bitmap == internal::madeBy00)
+        {
+            size = sizeof(internal::madeBy00);
+        }
+        else if(bitmap == internal::madeBy01)
+        {
+            size = sizeof(internal::madeBy01);
+        }
+        else if(bitmap == internal::madeBy02)
+        {
+            size = sizeof(internal::madeBy02);
+        }
 /*
-madeBy00
-madeBy01
-madeBy02
 playerAmy
 playerAmyMask
 enemyZombie

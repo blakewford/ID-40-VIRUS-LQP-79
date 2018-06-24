@@ -140,9 +140,9 @@ void stateMenuInfo()
 {
   drawBadge();
 
-  sprites.drawSelfMasked(48, 33, virus::madeBy00, 0);
-  sprites.drawSelfMasked(22, 33, virus::madeBy01, 0);
-  sprites.drawSelfMasked(27, 47, virus::madeBy02, 0);
+  sprites.drawSelfMasked(48, 33, virus::getBitmap(virus::MADEBY00_IMAGE), 0);
+  sprites.drawSelfMasked(22, 33, virus::getBitmap(virus::MADEBY01_IMAGE), 0);
+  sprites.drawSelfMasked(27, 47, virus::getBitmap(virus::MADEBY02_IMAGE), 0);
 
 
   if (arduboy.justPressed(A_BUTTON | B_BUTTON)) gameState = STATE_MENU_MAIN;
