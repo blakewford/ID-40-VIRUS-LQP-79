@@ -9,9 +9,9 @@ byte slideCounter = 0;
 // method implementations ////////////////////////////////////////////////////
 void drawTitleScreen()
 {
-  sprites.drawSelfMasked(0, 0, virus::titleScreen00, 0);
-  sprites.drawSelfMasked(62, 32, virus::titleScreen01, 0);
-  sprites.drawSelfMasked(66, 0, virus::titleScreen02, 0);
+  sprites.drawSelfMasked(0, 0, virus::getBitmap(virus::TITLESCREEN00_IMAGE), 0);
+  sprites.drawSelfMasked(62, 32, virus::getBitmap(virus::TITLESCREEN01_IMAGE), 0);
+  sprites.drawSelfMasked(66, 0, virus::getBitmap(virus::TITLESCREEN02_IMAGE), 0);
 }
 
 void drawBadge()
@@ -45,7 +45,7 @@ void makeItSlide()
 void stateMenuIntro()
 {
   globalCounter++;
-  sprites.drawSelfMasked(34, 4, virus::T_arg, 0);
+  sprites.drawSelfMasked(34, 4, virus::getBitmap(virus::T_ARG_IMAGE), 0);
   if (globalCounter > 120)
   {
     globalCounter = 0;
@@ -58,16 +58,16 @@ void stateMenuMain()
   drawTitleScreen();
   for (byte i = 0; i < 3; i++)
   {
-    sprites.drawOverwrite(127 - slideCounter + (8 * i) , 25, virus::smallMask, 0);
+    sprites.drawOverwrite(127 - slideCounter + (8 * i) , 25, virus::getBitmap(virus::SMALLMASK_IMAGE), 0);
   }
-  if (menuSelection == 2) sprites.drawOverwrite(98 , 25, virus::smallMask, 0);
+  if (menuSelection == 2) sprites.drawOverwrite(98 , 25, virus::getBitmap(virus::SMALLMASK_IMAGE), 0);
   for (byte i = 0; i < 4; i++)
   {
     if (((2 + i) - menuSelection) != 0)
     {
-      sprites.drawSelfMasked(128 - slideCounter, 25 + (9 * i), virus::menuText, i);
+      sprites.drawSelfMasked(128 - slideCounter, 25 + (9 * i), virus::getBitmap(virus::MENUTEXT_IMAGE), i);
     }
-    if (((2 + i) - menuSelection) == 0) sprites.drawSelfMasked(128 - slideCounter - globalCounter, 25 + (9 * i), virus::menuText, i);
+    if (((2 + i) - menuSelection) == 0) sprites.drawSelfMasked(128 - slideCounter - globalCounter, 25 + (9 * i), virus::getBitmap(virus::MENUTEXT_IMAGE), i);
   }
   if (arduboy.justPressed(DOWN_BUTTON) && (menuSelection < 5))
   {

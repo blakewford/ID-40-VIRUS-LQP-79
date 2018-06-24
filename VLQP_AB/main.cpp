@@ -176,7 +176,7 @@ bool clipImage(pgm& modified, int16_t x, int16_t y)
     return canClip;
 }
 
-void writeToScreen(const pgm& image, int16_t x, int16_t y)
+void writeToScreen(const pgm& image, int16_t x, int16_t y, bool masked)
 {
     int16_t i = 0;
     int16_t j = 0;
@@ -197,7 +197,7 @@ void writeToScreen(const pgm& image, int16_t x, int16_t y)
         while(i < modified.width)
         {
             pixel = getPixel(image, i+offsetX, j+offsetY);
-            if(pixel != 0.0f)
+            if(pixel != 0.0f || !masked)
             {
                 setPixel(gScreen, offsetX+x+i, offsetY+y+j, pixel);
             }
@@ -242,7 +242,7 @@ void writeToScreen(const unsigned char* bitmap, int16_t x, int16_t y, uint8_t fr
     int32_t offset = calculateOffset(bitmap, frame);
     convertImage(bitmap+offset, bitmap[0], bitmap[1], item);
     item.height = bitmap[1];
-    writeToScreen(item, x, y);
+    writeToScreen(item, x, y, true);
 
     delete[] item.image;
     item.image = nullptr;
@@ -565,7 +565,14 @@ unsigned long int getImageSize(const uint8_t *bitmap)
 
 void Sprites::drawOverwrite(int16_t x, int16_t y, const uint8_t *bitmap, uint8_t frame)
 {
-    assert(0);
+    pgm item;
+    int32_t offset = calculateOffset(bitmap, frame);
+    convertImage(bitmap+offset, bitmap[0], bitmap[1], item);
+    item.height = bitmap[1];
+    writeToScreen(item, x, y, false);
+
+    delete[] item.image;
+    item.image = nullptr;
 }
 
 void Sprites::drawSelfMasked(int16_t x, int16_t y, const uint8_t *bitmap, uint8_t frame)
