@@ -41,9 +41,14 @@ zombieTwo
 zombieTwoMask
 survivor
 survivorMask
-numbersTiny
-numbersSmall_plus_mask
-numbersBig
+*/
+            case NUMBERSTINY_IMAGE:
+                return internal::numbersTiny;
+            case NUMBERSSMALL_IMAGE:
+                return internal::numbersSmall_plus_mask;
+            case NUMBERSBIG_IMAGE:
+                return internal::numbersBig;
+/*
 HUD_plus_mask
 coolDownLine_plus_mask
 help_plus_mask
@@ -133,9 +138,20 @@ zombieTwo
 zombieTwoMask
 survivor
 survivorMask
-numbersTiny
-numbersSmall_plus_mask
-numbersBig
+*/
+        else if(bitmap == internal::numbersTiny)
+        {
+            size = sizeof(internal::numbersTiny);
+        }
+        else if(bitmap == internal::numbersSmall_plus_mask)
+        {
+            size = sizeof(internal::numbersSmall_plus_mask);
+        }
+        else if(bitmap == internal::numbersBig)
+        {
+            size = sizeof(internal::numbersBig);
+        }
+/*
 HUD_plus_mask
 coolDownLine_plus_mask
 help_plus_mask
@@ -177,10 +193,6 @@ exitClosed
 exitClosedMask
 youWon
 */
-        else if(bitmap == numbersBig)
-        {
-            size = sizeof(numbersBig);
-        }
         else
         {
             assert(0);
