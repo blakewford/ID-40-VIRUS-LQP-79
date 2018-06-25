@@ -323,12 +323,12 @@ uint8_t ROM::read(uint16_t address)
 
 void ROM::write(uint16_t address, uint8_t value)
 {
-    assert(0);
+    printf("EEPROM %X: %d\n", address, value);
 }
 
 void ROM::put(uint16_t address, uint8_t value)
 {
-    assert(0);
+    write(address, value);
 }
 
 void ROM::get(uint16_t address, int& value)

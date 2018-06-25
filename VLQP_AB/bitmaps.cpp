@@ -1,6 +1,14 @@
 #include "bitmaps.h"
 #include <assert.h>
 
+namespace levels
+{
+    namespace internal
+    {
+        unsigned long int getImageSize(const uint8_t *bitmap);
+    }
+}
+
 namespace virus
 {
     const uint8_t* getBitmap(imageId image)
@@ -194,6 +202,11 @@ exitClosedMask
 youWon
 */
         else
+        {
+            size = levels::internal::getImageSize(bitmap);
+        }
+
+        if(size == 0)
         {
             assert(0);
         }

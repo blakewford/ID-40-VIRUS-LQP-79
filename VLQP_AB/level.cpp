@@ -1,6 +1,35 @@
 #include "level.h"
 #include <stdio.h>
 
+namespace levels
+{
+    namespace internal
+    {
+        const uint8_t* getBitmap(imageId image)
+        {
+            switch(image)
+            {
+                case TILESET_IMAGE:
+                    return internal::tileset;
+            }
+
+            return nullptr;
+        }
+
+        unsigned long int getImageSize(const uint8_t *bitmap)
+        {
+            unsigned long int size = 0;
+
+            if(bitmap == internal::tileset)
+            {
+                size = sizeof(internal::tileset);
+            }
+
+            return size;
+        }
+    }
+}
+
 // method implementations ///////////////////////////////////////////////////
 
 int mapPositionX;
@@ -38,7 +67,7 @@ void newDraw(unsigned posX, unsigned posY) {
   for (byte x = 0; x < (subX ? 17 : 16); x++) {
     for (byte y = 0; y < (subY ?  9 :  8); y++) {
       sprites.drawSelfMasked(
-        ((int)x << 3) - subX, ((int)y << 3) - subY, tileset,
+        ((int)x << 3) - subX, ((int)y << 3) - subY, levels::internal::getBitmap(levels::internal::TILESET_IMAGE),
         getTileType(intX + x, intY + y)
         + (40 * ((level-1)%3))
       );
