@@ -38,29 +38,28 @@ namespace virus
             case MADEBY02_IMAGE:
                 return internal::madeBy02;
 /*
-madeBy00
-madeBy01
-madeBy02
 playerAmy
 playerAmyMask
 enemyZombie
 enemyZombieMask
 zombieTwo
 zombieTwoMask
-survivor
-survivorMask
 */
+            case SURVIVOR_IMAGE:
+                return internal::survivor;
+            case SURVIVORMASK_IMAGE:
+                return internal::survivorMask;
             case NUMBERSTINY_IMAGE:
                 return internal::numbersTiny;
             case NUMBERSSMALL_IMAGE:
                 return internal::numbersSmall_plus_mask;
             case NUMBERSBIG_IMAGE:
                 return internal::numbersBig;
-/*
-HUD_plus_mask
-coolDownLine_plus_mask
-help_plus_mask
-*/
+            case HUDMASK_IMAGE:
+                return internal::HUD_plus_mask;
+//coolDownLine_plus_mask
+            case HELPMASK_IMAGE:
+                return internal::help_plus_mask;
             case GAMEOVER_IMAGE:
                 return internal::gameOver;
             case TEXTMAYHEM_IMAGE:
@@ -78,12 +77,16 @@ help_plus_mask
 /*
 collectables_plus_mask
 dotMask
-exitOpen
-exitOpenMask
-exitClosed
-exitClosedMask
-youWon
 */
+            case EXITOPEN_IMAGE:
+                return internal::exitOpen;
+            case EXITOPENMASK_IMAGE:
+                return internal::exitOpenMask;
+            case EXITCLOSED_IMAGE:
+                return internal::exitClosed;
+            case EXITCLOSEDMASK_IMAGE:
+                return internal::exitClosedMask;
+//youWon
         }
 
         return nullptr;
@@ -144,9 +147,15 @@ enemyZombie
 enemyZombieMask
 zombieTwo
 zombieTwoMask
-survivor
-survivorMask
 */
+        else if(bitmap == internal::survivor)
+        {
+            size = sizeof(internal::survivor);
+        }
+        else if(bitmap == internal::survivorMask)
+        {
+            size = sizeof(internal::survivorMask);
+        }
         else if(bitmap == internal::numbersTiny)
         {
             size = sizeof(internal::numbersTiny);
@@ -159,11 +168,15 @@ survivorMask
         {
             size = sizeof(internal::numbersBig);
         }
-/*
-HUD_plus_mask
-coolDownLine_plus_mask
-help_plus_mask
-*/
+        else if(bitmap == internal::HUD_plus_mask)
+        {
+            size = sizeof(internal::HUD_plus_mask);
+        }
+//coolDownLine_plus_mask
+        else if(bitmap == internal::help_plus_mask)
+        {
+            size = sizeof(internal::help_plus_mask);
+        }
         else if(bitmap == internal::gameOver)
         {
             size = sizeof(internal::gameOver);
@@ -195,12 +208,24 @@ help_plus_mask
 /*
 collectables_plus_mask
 dotMask
-exitOpen
-exitOpenMask
-exitClosed
-exitClosedMask
-youWon
 */
+        else if(bitmap == internal::exitOpen)
+        {
+            size = sizeof(internal::exitOpen);
+        }
+        else if(bitmap == internal::exitOpenMask)
+        {
+            size = sizeof(internal::exitOpenMask);
+        }
+        else if(bitmap == internal::exitClosed)
+        {
+            size = sizeof(internal::exitClosed);
+        }
+        else if(bitmap == internal::exitClosedMask)
+        {
+            size = sizeof(internal::exitClosedMask);
+        }
+//youWon
         else
         {
             size = levels::internal::getImageSize(bitmap);

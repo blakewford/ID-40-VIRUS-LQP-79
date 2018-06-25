@@ -261,11 +261,11 @@ void drawLife(Player& obj)
 {
   for (byte amountLife = 0; amountLife < obj.health; amountLife++)
   {
-    sprites.drawPlusMask((amountLife / 2) * 10, 0, virus::HUD_plus_mask, 0);
+    sprites.drawPlusMask((amountLife / 2) * 10, 0, virus::getBitmap(virus::HUDMASK_IMAGE), 0);
   }
   for (byte amountLife = 0; amountLife < obj.health / 2; amountLife++)
   {
-    sprites.drawPlusMask(amountLife * 10, 0, virus::HUD_plus_mask, 1);
+    sprites.drawPlusMask(amountLife * 10, 0, virus::getBitmap(virus::HUDMASK_IMAGE), 1);
   }
 }
 

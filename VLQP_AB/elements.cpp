@@ -51,9 +51,9 @@ void drawSurvivors()
   {
     Element &surv = survivors[id];
     if (!surv.active) continue;
-    sprites.drawErase(surv.x - mapPositionX, surv.y - mapPositionY, virus::survivorMask, survivorType[id]);
-    sprites.drawSelfMasked(surv.x - mapPositionX, surv.y - mapPositionY, virus::survivor, survivorFrame + (4 * survivorType[id]));
-    if (showHelp)sprites.drawPlusMask(surv.x + 16 - mapPositionX, surv.y - 9 - mapPositionY, virus::help_plus_mask, 0);
+    sprites.drawErase(surv.x - mapPositionX, surv.y - mapPositionY, virus::getBitmap(virus::SURVIVORMASK_IMAGE), survivorType[id]);
+    sprites.drawSelfMasked(surv.x - mapPositionX, surv.y - mapPositionY, virus::getBitmap(virus::SURVIVOR_IMAGE), survivorFrame + (4 * survivorType[id]));
+    if (showHelp)sprites.drawPlusMask(surv.x + 16 - mapPositionX, surv.y - 9 - mapPositionY, virus::getBitmap(virus::HELPMASK_IMAGE), 0);
   }
 
 }
@@ -106,17 +106,17 @@ void drawAmountSurvivors()
 {
   for (byte amountSurvivors = 0; amountSurvivors < countAmountActiveSurvivors(); amountSurvivors++) // needs the amount of active survivors
   {
-    sprites.drawPlusMask(40 + amountSurvivors * 9, 0, virus::HUD_plus_mask, 2);
+    sprites.drawPlusMask(40 + amountSurvivors * 9, 0, virus::getBitmap(virus::HUDMASK_IMAGE), 2);
   }
   if (!countAmountActiveSurvivors())
   {
     if (showHelp)
     {
-      sprites.drawPlusMask(45, 0, virus::HUD_plus_mask, 3);  //55
-      sprites.drawPlusMask(54, 0, virus::HUD_plus_mask, 4);  //64
+      sprites.drawPlusMask(45, 0, virus::getBitmap(virus::HUDMASK_IMAGE), 3);  //55
+      sprites.drawPlusMask(54, 0, virus::getBitmap(virus::HUDMASK_IMAGE), 4);  //64
     }
-    sprites.drawPlusMask(65, 0, virus::HUD_plus_mask, 5);
-    sprites.drawPlusMask(74, 0, virus::HUD_plus_mask, 6);
+    sprites.drawPlusMask(65, 0, virus::getBitmap(virus::HUDMASK_IMAGE), 5);
+    sprites.drawPlusMask(74, 0, virus::getBitmap(virus::HUDMASK_IMAGE), 6);
     drawNumbers(68, 1, FONT_TINY, DATA_TIMER);
   }
 }
