@@ -187,7 +187,6 @@ namespace virus
       16, 8,
       0x1F, 0x09, 0x09, 0x1F, 0x00, 0x1F, 0x09, 0x09, 0x17, 0x00, 0x01, 0x01, 0x1F, 0x01, 0x00, 0x0A
     };
-  } //end internal scope
 
     PROGMEM const unsigned char playerAmy[] = {
       // width, height
@@ -318,8 +317,7 @@ namespace virus
       0x3F, 0x1F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x7F, 0x0E, 0x00,
       0x00, 0x00, 0x00, 0x60, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFC, 0xF8, 0x70,
     };
-    
-    
+  } //end internal scope
     
     PROGMEM const unsigned char enemyZombie[] = {
       // width, height
@@ -626,7 +624,6 @@ namespace virus
       0x41, 0xFF, 0x7F, 0xFF, 0x41, 0xFF, 0x41, 0xFF, 0x41,
       0xFF, 0x7F, 0xFF, 0x3E, 0x7F, 0x00, 0x3E, 0x00, 0x00,
     };
-  }
 
     PROGMEM const unsigned char coolDownLine_plus_mask[] = {
       // width, height
@@ -635,8 +632,6 @@ namespace virus
       0x00, 0x07,
     };
     
-  namespace internal
-  {
     PROGMEM const unsigned char help_plus_mask[] = {
       // width, height
       28, 16,
@@ -837,9 +832,9 @@ namespace virus
         MADEBY00_IMAGE,
         MADEBY01_IMAGE,
         MADEBY02_IMAGE,
+        PLAYERAMY_IMAGE,
+        AMYMASK_IMAGE,
 /*
-playerAmy
-playerAmyMask
 enemyZombie
 enemyZombieMask
 zombieTwo
@@ -851,7 +846,7 @@ zombieTwoMask
         NUMBERSSMALL_IMAGE,
         NUMBERSBIG_IMAGE,
         HUDMASK_IMAGE,
-//coolDownLine_plus_mask
+        COOLDOWN_IMAGE,
         HELPMASK_IMAGE,
         GAMEOVER_IMAGE,
         TEXTMAYHEM_IMAGE,

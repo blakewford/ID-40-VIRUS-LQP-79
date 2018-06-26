@@ -252,8 +252,8 @@ void drawPlayer(Player& obj)
 {
   if ((obj.flashTime % 8) < 4)
   {
-    sprites.drawErase(obj.x - mapPositionX, obj.y - mapPositionY, virus::playerAmyMask, obj.direction);
-    sprites.drawSelfMasked(obj.x - mapPositionX, obj.y - mapPositionY, virus::playerAmy, obj.frame + 4 * obj.direction);
+    sprites.drawErase(obj.x - mapPositionX, obj.y - mapPositionY,  virus::getBitmap(virus::AMYMASK_IMAGE), obj.direction);
+    sprites.drawSelfMasked(obj.x - mapPositionX, obj.y - mapPositionY,  virus::getBitmap(virus::PLAYERAMY_IMAGE), obj.frame + 4 * obj.direction);
   }
 }
 
@@ -275,7 +275,7 @@ void drawCoolDown()
   {
     for (byte i = 0; i < coolGirl.coolDownCounter; i++)
     {
-      sprites.drawPlusMask(i, 7, virus::coolDownLine_plus_mask, 0);
+      sprites.drawPlusMask(i, 7, virus::getBitmap(virus::COOLDOWN_IMAGE), 0);
     }
   }
 }

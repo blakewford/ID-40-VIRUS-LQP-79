@@ -37,9 +37,11 @@ namespace virus
                 return internal::madeBy01;
             case MADEBY02_IMAGE:
                 return internal::madeBy02;
+            case PLAYERAMY_IMAGE:
+                return internal::playerAmy;
+            case AMYMASK_IMAGE:
+                return internal::playerAmyMask;
 /*
-playerAmy
-playerAmyMask
 enemyZombie
 enemyZombieMask
 zombieTwo
@@ -57,7 +59,8 @@ zombieTwoMask
                 return internal::numbersBig;
             case HUDMASK_IMAGE:
                 return internal::HUD_plus_mask;
-//coolDownLine_plus_mask
+            case COOLDOWN_IMAGE:
+                return internal::coolDownLine_plus_mask;
             case HELPMASK_IMAGE:
                 return internal::help_plus_mask;
             case GAMEOVER_IMAGE:
@@ -140,9 +143,15 @@ dotMask
         {
             size = sizeof(internal::madeBy02);
         }
+        else if(bitmap == internal::playerAmy)
+        {
+            size = sizeof(internal::playerAmy);
+        }
+        else if(bitmap == internal::playerAmyMask)
+        {
+            size = sizeof(internal::playerAmyMask);
+        }
 /*
-playerAmy
-playerAmyMask
 enemyZombie
 enemyZombieMask
 zombieTwo
@@ -172,7 +181,10 @@ zombieTwoMask
         {
             size = sizeof(internal::HUD_plus_mask);
         }
-//coolDownLine_plus_mask
+        else if(bitmap == internal::coolDownLine_plus_mask)
+        {
+            size = sizeof(internal::coolDownLine_plus_mask);
+        }
         else if(bitmap == internal::help_plus_mask)
         {
             size = sizeof(internal::help_plus_mask);
