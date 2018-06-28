@@ -79,10 +79,10 @@ namespace virus
                 return internal::pressKey;
             case PAUSE_IMAGE:
                 return internal::pause;
-/*
-collectables_plus_mask
-dotMask
-*/
+            case COLLECTABLE_IMAGE:
+                return internal::collectables_plus_mask;
+            case DOTMASK_IMAGE:
+                return internal::dotMask;
             case EXITOPEN_IMAGE:
                 return internal::exitOpen;
             case EXITOPENMASK_IMAGE:
@@ -91,7 +91,8 @@ dotMask
                 return internal::exitClosed;
             case EXITCLOSEDMASK_IMAGE:
                 return internal::exitClosedMask;
-//youWon
+            case YOUWON_IMAGE:
+                return internal::youWon;
         }
 
         return nullptr;
@@ -229,10 +230,14 @@ dotMask
         {
             size = sizeof(internal::pause);
         }
-/*
-collectables_plus_mask
-dotMask
-*/
+        else if(bitmap == internal::collectables_plus_mask)
+        {
+            size = sizeof(internal::collectables_plus_mask);
+        }
+        else if(bitmap == internal::dotMask)
+        {
+            size = sizeof(internal::dotMask);
+        }
         else if(bitmap == internal::exitOpen)
         {
             size = sizeof(internal::exitOpen);
@@ -249,7 +254,10 @@ dotMask
         {
             size = sizeof(internal::exitClosedMask);
         }
-//youWon
+        else if(bitmap == internal::youWon)
+        {
+            size = sizeof(internal::youWon);
+        }
         else
         {
             size = levels::internal::getImageSize(bitmap);

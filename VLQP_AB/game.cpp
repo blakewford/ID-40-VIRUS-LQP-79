@@ -270,7 +270,7 @@ void stateGameEnd()
 #else
   ((FunctionPointer)(gameOverFases[gameOverAndStageFase]))();
 #endif
-  sprites.drawSelfMasked(22, 8, virus::youWon, 0);
+  sprites.drawSelfMasked(22, 8, virus::getBitmap(virus::YOUWON_IMAGE), 0);
   drawNumbers(36, 32, FONT_BIG, DATA_SCORE);
   if (pressKeyVisible) sprites.drawSelfMasked(37, 56, virus::getBitmap(virus::PRESSKEY_IMAGE), 0);
 }
