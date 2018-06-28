@@ -1,3 +1,4 @@
+#include <math.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
@@ -441,7 +442,12 @@ bool Arduboy2Base::collide(Rect rect1, Rect rect2)
 
 void Arduboy2Base::drawCircle(int16_t x0, int16_t y0, uint8_t r, uint8_t color)
 {
-    assert(0);
+    uint16_t angle = 0;
+    while(angle <= 360)
+    {
+        setPixel(gScreen, r*cos(angle) + x0,  r*sin(angle) + y0, color);
+        angle++;
+    }
 }
 
 bool Arduboy2Base::nextFrame()
