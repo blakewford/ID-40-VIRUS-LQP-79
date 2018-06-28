@@ -41,12 +41,14 @@ namespace virus
                 return internal::playerAmy;
             case AMYMASK_IMAGE:
                 return internal::playerAmyMask;
-/*
-enemyZombie
-enemyZombieMask
-zombieTwo
-zombieTwoMask
-*/
+            case ZOMBIE_IMAGE:
+                return internal::enemyZombie;
+            case ZOMBIEMASK_IMAGE:
+                return internal::enemyZombieMask;
+            case ZOMBIETWO_IMAGE:
+                return internal::zombieTwo;
+            case ZOMBIETWOMASK_IMAGE:
+                return internal::zombieTwoMask;
             case SURVIVOR_IMAGE:
                 return internal::survivor;
             case SURVIVORMASK_IMAGE:
@@ -151,12 +153,22 @@ dotMask
         {
             size = sizeof(internal::playerAmyMask);
         }
-/*
-enemyZombie
-enemyZombieMask
-zombieTwo
-zombieTwoMask
-*/
+        else if(bitmap == internal::enemyZombie)
+        {
+            size = sizeof(internal::enemyZombie);
+        }
+        else if(bitmap == internal::enemyZombieMask)
+        {
+            size = sizeof(internal::enemyZombieMask);
+        }
+        else if(bitmap == internal::zombieTwo)
+        {
+            size = sizeof(internal::zombieTwo);
+        }
+        else if(bitmap == internal::zombieTwoMask)
+        {
+            size = sizeof(internal::zombieTwoMask);
+        }
         else if(bitmap == internal::survivor)
         {
             size = sizeof(internal::survivor);

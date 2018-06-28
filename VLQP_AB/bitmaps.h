@@ -317,7 +317,6 @@ namespace virus
       0x3F, 0x1F, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x7F, 0x0E, 0x00,
       0x00, 0x00, 0x00, 0x60, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFC, 0xF8, 0x70,
     };
-  } //end internal scope
     
     PROGMEM const unsigned char enemyZombie[] = {
       // width, height
@@ -414,8 +413,6 @@ namespace virus
       0x7f, 0xff, 0xff, 0x7f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfd,
     };
     
-  namespace internal
-  {
     const unsigned char PROGMEM survivor[] =
     {
       // width, height,
@@ -834,12 +831,10 @@ namespace virus
         MADEBY02_IMAGE,
         PLAYERAMY_IMAGE,
         AMYMASK_IMAGE,
-/*
-enemyZombie
-enemyZombieMask
-zombieTwo
-zombieTwoMask
-*/
+        ZOMBIE_IMAGE,
+        ZOMBIEMASK_IMAGE,
+        ZOMBIETWO_IMAGE,
+        ZOMBIETWOMASK_IMAGE,
         SURVIVOR_IMAGE,
         SURVIVORMASK_IMAGE,
         NUMBERSTINY_IMAGE,

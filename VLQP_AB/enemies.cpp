@@ -202,13 +202,13 @@ void drawZombie(Enemy& obj)
       drawY = obj.y - mapPositionY;
       if (obj.type)
       {
-        sprites.drawErase(drawX, drawY, virus::enemyZombieMask, obj.direction);
-        sprites.drawSelfMasked(drawX, drawY, virus::enemyZombie, obj.frame + 8 * obj.direction);
+        sprites.drawErase(drawX, drawY, virus::getBitmap(virus::ZOMBIEMASK_IMAGE), obj.direction);
+        sprites.drawSelfMasked(drawX, drawY, virus::getBitmap(virus::ZOMBIE_IMAGE), obj.frame + 8 * obj.direction);
       }
       else
       {
-        sprites.drawErase(drawX, drawY, virus::zombieTwoMask, obj.direction);
-        sprites.drawSelfMasked(drawX, drawY, virus::zombieTwo, (obj.frame%2) + 2 * obj.direction);
+        sprites.drawErase(drawX, drawY, virus::getBitmap(virus::ZOMBIETWOMASK_IMAGE), obj.direction);
+        sprites.drawSelfMasked(drawX, drawY, virus::getBitmap(virus::ZOMBIETWO_IMAGE), (obj.frame%2) + 2 * obj.direction);
       }
     }
   }
